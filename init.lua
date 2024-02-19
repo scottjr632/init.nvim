@@ -800,6 +800,21 @@ vim.cmd([[
 ]])
 
 
+-- Go commands
+
+vim.cmd([[
+  command Gofmt execute ':silent !go fmt ./...'
+]])
+
+
+vim.cmd([[
+  command Gotidy execute ':silent !go mod tidy'
+]])
+
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+
 -- Harpoon setup
 
 require("telescope").load_extension('harpoon')
