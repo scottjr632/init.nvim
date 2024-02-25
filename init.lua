@@ -828,6 +828,8 @@ t['zz']    = { 'zz', { '250' } }
 t['zb']    = { 'zb', { '250' } }
 
 require('neoscroll.config').set_mappings(t)
+vim.api.nvim_set_keymap('n', 'E', '<C-e>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'Y', '<C-y>', { noremap = true, silent = true })
 
 -- ESLint commands
 
@@ -905,6 +907,7 @@ vim.cmd([[
   command FPath execute ':!echo %:p'
 ]])
 
+<<<<<<< HEAD
 require('lspconfig').tsserver.setup({
   init_options = {
     -- This is the default which would be overwritten otherwise
