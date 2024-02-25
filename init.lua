@@ -88,7 +88,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -124,7 +124,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -685,70 +685,70 @@ cmp.setup {
 -- vim: ts=2 sts=2 sw=2 et
 --
 require("rose-pine").setup({
-    variant = "auto", -- auto, main, moon, or dawn
-    dark_variant = "main", -- main, moon, or dawn
-    dim_inactive_windows = false,
-    extend_background_behind_borders = true,
+  variant = "auto",        -- auto, main, moon, or dawn
+  dark_variant = "main",   -- main, moon, or dawn
+  dim_inactive_windows = false,
+  extend_background_behind_borders = true,
 
-    enable = {
-        terminal = true,
-        legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-        migrations = true, -- Handle deprecated options automatically
-    },
+  enable = {
+    terminal = true,
+    legacy_highlights = true,     -- Improve compatibility for previous versions of Neovim
+    migrations = true,            -- Handle deprecated options automatically
+  },
 
-    styles = {
-        bold = true,
-        italic = true,
-        transparency = false,
-    },
+  styles = {
+    bold = true,
+    italic = true,
+    transparency = false,
+  },
 
-    groups = {
-        border = "muted",
-        link = "iris",
-        panel = "surface",
+  groups = {
+    border = "muted",
+    link = "iris",
+    panel = "surface",
 
-        error = "love",
-        hint = "iris",
-        info = "foam",
-        note = "pine",
-        todo = "rose",
-        warn = "gold",
+    error = "love",
+    hint = "iris",
+    info = "foam",
+    note = "pine",
+    todo = "rose",
+    warn = "gold",
 
-        git_add = "foam",
-        git_change = "rose",
-        git_delete = "love",
-        git_dirty = "rose",
-        git_ignore = "muted",
-        git_merge = "iris",
-        git_rename = "pine",
-        git_stage = "iris",
-        git_text = "rose",
-        git_untracked = "subtle",
+    git_add = "foam",
+    git_change = "rose",
+    git_delete = "love",
+    git_dirty = "rose",
+    git_ignore = "muted",
+    git_merge = "iris",
+    git_rename = "pine",
+    git_stage = "iris",
+    git_text = "rose",
+    git_untracked = "subtle",
 
-        h1 = "iris",
-        h2 = "foam",
-        h3 = "rose",
-        h4 = "gold",
-        h5 = "pine",
-        h6 = "foam",
-    },
+    h1 = "iris",
+    h2 = "foam",
+    h3 = "rose",
+    h4 = "gold",
+    h5 = "pine",
+    h6 = "foam",
+  },
 
-    highlight_groups = {
-        -- Comment = { fg = "foam" },
-        -- VertSplit = { fg = "muted", bg = "muted" },
-    },
+  highlight_groups = {
+    -- Comment = { fg = "foam" },
+    -- VertSplit = { fg = "muted", bg = "muted" },
+  },
 
-    before_highlight = function(group, highlight, palette)
-        -- Disable all undercurls
-        -- if highlight.undercurl then
-        --     highlight.undercurl = false
-        -- end
-        --
-        -- Change palette colour
-        -- if highlight.fg == palette.pine then
-        --     highlight.fg = palette.foam
-        -- end
-    end,
+  before_highlight = function(group, highlight, palette)
+    -- Disable all undercurls
+    -- if highlight.undercurl then
+    --     highlight.undercurl = false
+    -- end
+    --
+    -- Change palette colour
+    -- if highlight.fg == palette.pine then
+    --     highlight.fg = palette.foam
+    -- end
+  end,
 })
 
 -- color theme
@@ -758,20 +758,20 @@ vim.opt.relativenumber = true
 vim.opt.fillchars = 'eob: '
 
 vim.keymap.set('n', '<leader>o',
-  function ()
+  function()
     require('neo-tree.command').execute({
       reveal = true,
     })
   end,
-{ desc = 'Focus file in file explorer' })
+  { desc = 'Focus file in file explorer' })
 
 vim.keymap.set('n', '<leader>e',
-  function ()
+  function()
     require('neo-tree.command').execute({
       toggle = true,
     })
   end,
-{ desc = 'Toggle the file exporer' })
+  { desc = 'Toggle the file exporer' })
 
 -- Copilot setup
 
@@ -780,14 +780,37 @@ vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true,
 vim.api.nvim_set_keymap("i", "<C-H>", 'copilot#Previous()', { silent = true, expr = true })
 vim.api.nvim_set_keymap("i", "<C-K>", 'copilot#Next()', { silent = true, expr = true })
 
--- Neoscroll setup
-
-require('neoscroll').setup()
-
 -- Scroll setup
 
-vim.api.nvim_set_keymap('n', 'E', '<C-e>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', 'Y', '<C-y>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', 'E', '<C-e>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'Y', '<C-y>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<C-h>', '<C-e>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<C-l>', '<C-y>', { noremap = true, silent = true })
+--
+-- Neoscroll setup
+
+-- require('neoscroll').setup({
+--   mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
+--     '<C-y>', '<C-e>', 'zt', 'zz', 'zb', '<C-h>', '<C-l>' },
+-- })
+--
+require('neoscroll').setup({
+    -- Set any options as needed
+})
+
+local t = {}
+-- Syntax: t[keys] = {function, {function arguments}}
+t['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '250'}}
+t['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '250'}}
+t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
+t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
+t['<C-h>'] = {'scroll', {'-0.10', 'false', '100'}}
+t['<C-l>'] = {'scroll', { '0.10', 'false', '100'}}
+t['zt']    = {'zt', {'250'}}
+t['zz']    = {'zz', {'250'}}
+t['zb']    = {'zb', {'250'}}
+
+require('neoscroll.config').set_mappings(t)
 
 -- ESLint commands
 
@@ -798,6 +821,17 @@ vim.cmd([[
 vim.cmd([[
   command Fix execute ':silent !./node_modules/.bin/eslint --fix %'
 ]])
+
+vim.api.nvim_exec([[
+  autocmd BufWritePre *.ts,*.tsx EslintFix
+]], false)
+
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--   vim.cmd('silent !./node_modules/.bin/eslint --fix %'),
+--   pattern = { '*.ts', '*.tsx' },
+-- })
+--
+
 
 
 -- Go commands
@@ -825,7 +859,7 @@ vim.keymap.set('n', '<leader>pt',
   function()
     require('harpoon.term').gotoTerminal(1)
   end,
-{ desc = 'Go to terminal in harpoon' })
+  { desc = 'Go to terminal in harpoon' })
 
 vim.keymap.set('n', '<leader>pn', require('harpoon.ui').nav_next, { desc = 'Go to next file in harpoon' })
 vim.keymap.set('n', '<leader>pp', require('harpoon.ui').nav_prev, { desc = 'Go to previous file in harpoon' })
@@ -849,3 +883,7 @@ end, { desc = 'Run npm run dev in terminal 4' })
 vim.keymap.set('n', '<leader>dvo', ':DiffviewOpen<CR>', { desc = '[D]iff [V]iew [O]pen' })
 vim.keymap.set('n', '<leader>dvc', ':DiffviewClose<CR>', { desc = '[D]iff [V]iew [C]lose' })
 
+
+vim.cmd([[
+  command FPath execute ':!echo %:p'
+]])
