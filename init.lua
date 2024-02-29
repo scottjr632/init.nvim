@@ -919,3 +919,31 @@ require('lspconfig').tsserver.setup({
 
 vim.keymap.set('n', 'U', '<C-r>', { noremap = true, silent = true, desc = 'Redo' })
 
+vim.keymap.set('n', '<leader>rw', '<C-w>r', { noremap = true, silent = true, desc = '[R]otate [W]indows' })
+
+vim.keymap.set('n', '<leader>ss', function()
+  require('telescope.builtin').spell_suggest(require('telescope.themes').get_dropdown({
+    previewer = false,
+  }))
+end, { desc = '[S]earch [S]pell suggestions' })
+
+vim.keymap.set('n', 'S', function()
+	local cmd = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>"
+	local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
+	vim.api.nvim_feedkeys(keys, "n", false)
+end)
+
+-- dont' lose the contents of the resgister when pasting
+vim.keymap.set('n', '<leader>p', '"_dp')
+
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('vertical_help', { clear = true }),
+  pattern = { 'help', 'fugitive*' },
+  callback = function ()
+    vim.bo.bufhidden = 'unload'
+    vim.cmd.wincmd('L')
+    vim.cmd.wincmd('=')
+  end
+})
+
