@@ -685,15 +685,15 @@ cmp.setup {
 -- vim: ts=2 sts=2 sw=2 et
 --
 require("rose-pine").setup({
-  variant = "auto",        -- auto, main, moon, or dawn
-  dark_variant = "main",   -- main, moon, or dawn
+  variant = "auto",      -- auto, main, moon, or dawn
+  dark_variant = "main", -- main, moon, or dawn
   dim_inactive_windows = false,
   extend_background_behind_borders = true,
 
   enable = {
     terminal = true,
-    legacy_highlights = true,     -- Improve compatibility for previous versions of Neovim
-    migrations = true,            -- Handle deprecated options automatically
+    legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+    migrations = true,        -- Handle deprecated options automatically
   },
 
   styles = {
@@ -795,20 +795,20 @@ vim.api.nvim_set_keymap("i", "<C-K>", 'copilot#Next()', { silent = true, expr = 
 -- })
 --
 require('neoscroll').setup({
-    -- Set any options as needed
+  -- Set any options as needed
 })
 
-local t = {}
+local t    = {}
 -- Syntax: t[keys] = {function, {function arguments}}
-t['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '250'}}
-t['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '250'}}
-t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
-t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
-t['<C-h>'] = {'scroll', {'-0.10', 'false', '100'}}
-t['<C-l>'] = {'scroll', { '0.10', 'false', '100'}}
-t['zt']    = {'zt', {'250'}}
-t['zz']    = {'zz', {'250'}}
-t['zb']    = {'zb', {'250'}}
+t['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '250' } }
+t['<C-d>'] = { 'scroll', { 'vim.wo.scroll', 'true', '250' } }
+t['<C-b>'] = { 'scroll', { '-vim.api.nvim_win_get_height(0)', 'true', '450' } }
+t['<C-f>'] = { 'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450' } }
+t['<C-h>'] = { 'scroll', { '-0.10', 'false', '100' } }
+t['<C-l>'] = { 'scroll', { '0.10', 'false', '100' } }
+t['zt']    = { 'zt', { '250' } }
+t['zz']    = { 'zz', { '250' } }
+t['zb']    = { 'zb', { '250' } }
 
 require('neoscroll.config').set_mappings(t)
 
@@ -887,3 +887,14 @@ vim.keymap.set('n', '<leader>dvc', ':DiffviewClose<CR>', { desc = '[D]iff [V]iew
 vim.cmd([[
   command FPath execute ':!echo %:p'
 ]])
+
+require('lspconfig').tsserver.setup({
+  init_options = {
+    -- This is the default which would be overwritten otherwise
+    hostInfo = "neovim",
+    -- 32 gb
+    maxTsServerMemory = 32768,
+    -- Never use LSP for syntax anyway
+    tsserver = { useSyntaxServer = "never" },
+  },
+})
