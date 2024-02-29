@@ -120,6 +120,9 @@ require('lazy').setup({
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
+      "onsails/lspkind.nvim",
+      "windwp/nvim-ts-autotag",
+      "windwp/nvim-autopairs",
     },
   },
 
@@ -633,6 +636,7 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local lspkind = require('lspkind')
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
@@ -676,8 +680,21 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'luasnip' },
+    { name = 'copilot' },
+    { name = 'buffer',  max_item_count = 5 },
     { name = 'path' },
+    { name = 'luasnip' },
+  },
+  formatting = {
+    expandable_indicator = true,
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      maxwidth = 50,
+      ellipsis_char = "...",
+      symbol_map = {
+        Copilot = "",
+      },
+    }),
   },
 }
 
@@ -898,3 +915,7 @@ require('lspconfig').tsserver.setup({
     tsserver = { useSyntaxServer = "never" },
   },
 })
+
+
+vim.keymap.set('n', 'U', '<C-r>', { noremap = true, silent = true, desc = 'Redo' })
+
