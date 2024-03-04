@@ -6,18 +6,17 @@ return {
 			"?",
 		},
 		dependencies = {
-
-			"catppuccin/nvim",
+			"rose-pine/neovim",
 		},
 		config = function()
 			local wilder = require("wilder")
-			local macchiato = require("catppuccin.palettes").get_palette("macchiato")
+			local rose = require("rose-pine.palette")
 
 			-- Create a highlight group for the popup menu
 			local text_highlight =
-				wilder.make_hl("WilderText", { { a = 1 }, { a = 1 }, { foreground = macchiato.text } })
+				wilder.make_hl("WilderText", { { a = 1 }, { a = 1 }, { foreground = rose.text } })
 			local mauve_highlight =
-				wilder.make_hl("WilderMauve", { { a = 1 }, { a = 1 }, { foreground = macchiato.mauve } })
+				wilder.make_hl("WilderMauve", { { a = 1 }, { a = 1 }, { foreground = rose.pine } })
 
 			-- Enable wilder when pressing :, / or ?
 			wilder.setup({ modes = { ":", "/", "?" } })
