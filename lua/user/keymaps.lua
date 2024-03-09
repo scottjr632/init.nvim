@@ -83,3 +83,12 @@ end, { desc = 'Clear all files in harpoon' })
 vim.keymap.set('n', '<leader>e', function()
   require('oil').toggle_float()
 end, { desc = 'Toggle [O]il' })
+
+vim.keymap.set('n', '<leader>o', function()
+  require('oil').toggle_float()
+end, { desc = 'Toggle [O]il' })
+
+-- Open link under cursor
+vim.keymap.set('n', '<leader>gx', function()
+  vim.cmd.URLOpenUnderCursor()
+end, { desc = 'Open link under cursor' })
