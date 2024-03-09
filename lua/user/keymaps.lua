@@ -92,3 +92,6 @@ end, { desc = 'Toggle [O]il' })
 vim.keymap.set('n', '<leader>gx', function()
   vim.cmd.URLOpenUnderCursor()
 end, { desc = 'Open link under cursor' })
+
+vim.keymap.set('n', 'L', '$', { noremap = true, silent = true, desc = 'Move to end of line' })
+vim.keymap.set('n', 'H', '^', { noremap = true, silent = true, desc = 'Move to end of line' })
