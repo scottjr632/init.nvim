@@ -93,6 +93,9 @@ vim.defer_fn(function()
     sync_install = false,
     -- List of parsers to ignore installing
     ignore_install = {},
+    autotag = {
+      enable = true,
+    },
     -- You can specify additional Treesitter modules here: -- For example: -- playground = {--enable = true,-- },
     modules = {},
     highlight = { enable = true },
@@ -332,7 +335,6 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'copilot' },
     { name = 'buffer',  max_item_count = 5 },
     { name = 'path' },
     { name = 'luasnip' },
@@ -345,6 +347,7 @@ cmp.setup {
       ellipsis_char = "...",
       symbol_map = {
         Copilot = "",
+        Codeium = ""
       },
     }),
   },
