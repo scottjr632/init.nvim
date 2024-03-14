@@ -71,7 +71,7 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 
 -- Always keep 8 lines above/below cursor unless at start/end of file
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 16
 
 vim.opt.guicursor = {
   "n-v-c:block",                                  -- Normal, visual, command-line: block cursor

@@ -100,3 +100,7 @@ vim.keymap.set('n', 'H', '^', { noremap = true, silent = true, desc = 'Move to e
 -- Tmux
 vim.keymap.set('n', '<leader>lt', vim.cmd.AttachToTmuxSession,
   { noremap = true, silent = true, desc = 'List Tmux Sessions' })
+
+-- Keep center while scrolling
+vim.keymap.set('n', 'G', 'Gzz')
+vim.keymap.set('n', 'gg', 'ggzz')
