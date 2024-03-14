@@ -95,3 +95,8 @@ end, { desc = 'Open link under cursor' })
 
 vim.keymap.set('n', 'L', '$', { noremap = true, silent = true, desc = 'Move to end of line' })
 vim.keymap.set('n', 'H', '^', { noremap = true, silent = true, desc = 'Move to end of line' })
+
+
+-- Tmux
+vim.keymap.set('n', '<leader>lt', vim.cmd.AttachToTmuxSession,
+  { noremap = true, silent = true, desc = 'List Tmux Sessions' })
